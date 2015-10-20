@@ -1,0 +1,204 @@
+#sidebar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+}
+
+#wrapper {
+    overflow: hidden;
+    /* will contain if #first is longer than #second */
+}
+
+#tfheader {
+    width: 280px;
+    display: inline-block;
+}
+
+#tfnewsearch {
+    float: left;
+    padding: 20px;
+    width: 280px;
+}
+
+.tftextinput {
+    margin: 0;
+    padding: 5px 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    border: 1px solid #0076a3;
+    border-right: 0px;
+    border-top-left-radius: 5px 5px;
+    border-bottom-left-radius: 5px 5px;
+}
+
+.tfbutton {
+    margin: 0;
+    padding: 5px 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    border: solid 1px #0076a3;
+    border-right: 0px;
+    background: #0095cd;
+    background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+    background: -moz-linear-gradient(top, #00adee, #0078a5);
+    border-top-right-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
+}
+
+.tfbutton:hover {
+    text-decoration: none;
+    background: #007ead;
+    background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+    background: -moz-linear-gradient(top, #0095cc, #00678e);
+}
+
+/* Fixes submit button height problem in Firefox */
+
+.tfbutton::-moz-focus-inner {
+    border: 0;
+}
+
+.tfclear {
+    clear: both;
+}
+
+body {
+    background-color: #ccc;
+}
+
+h1 {
+    align-content: center;
+    width: 400px;
+    margin: 20px auto 0 auto;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    background-color: #339933;
+}
+
+#menu ul {
+    list-style: none;
+    padding: 0px;
+    margin-left: 500px;
+    width: 900px;
+}
+
+#menu li {
+    font: oblique 36px Verdana, "Times New Roman", Times, serif;
+    color: #fff;
+    text-shadow: 0 2px 3px #000;
+    text-transform: lowercase;
+    cursor: pointer;
+    box-shadow: 0 0 4px 0 #eee;
+    -moz-box-shadow: 0 0 4px 0 #eee;
+    -webkit-box-shadow: 0 0 4px 0 #eee;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #6c6), color-stop(0.41, #6bba70), color-stop(1, #9f9));
+    background: -moz-linear-gradient(center bottom, #6c6 0%, #6bba70 41%, #99ff99 100%);
+
+}
+
+#menu a {
+    float: left;
+    width: 150px;
+    height: 40px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    padding-top: 17px;
+    font-size: 15px;
+}
+
+#menu a:hover {
+    color: #BAD1F3;
+    background: url(images/menuhov.jpg) no-repeat;
+}
+
+/*noinspection CssInvalidFunction*/
+.loginform {
+    width: 400px;
+}
+
+dl {
+    width: 800px;
+}
+
+dl, .loginform {
+
+    margin: 20px auto 0 auto;
+    background: #FFF;
+    padding: 0 0 0 5px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    box-shadow: 0 0 7px 0 #eee inset, 0 0 16px 0 #ccc;
+    -moz-box-shadow: 0 0 7px 0 #eee inset, 0 0 16px 0 #ccc;
+    -webkit-box-shadow: 0 0 7px 0 #eee inset, 0 0 16px 0 #ccc;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #fff), color-stop(0.41, #ccc), color-stop(1, #fff));
+    background: -moz-linear-gradient(center bottom, #fff 0%, #ccc 41%, #fff 100%);
+    -webkit-box-reflect: below 10px -webkit-gradient(linear, left top, left bottom, from(transparent), to(#fff, 0.2)));
+}
+
+fieldset {
+    border: 0;
+    margin-left: 20px;
+    padding: 0;
+}
+
+input {
+    color: #000;
+    display: inline;
+    margin: 10px 0;
+    padding: 10px;
+    border: 3px solid #fff;
+    font: 36px Georgia, "Times New Roman", Times, serif;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    box-shadow: 1px 1px 0 0 #FFF, 5px 5px 40px 2px #eee inset;
+    -moz-box-shadow: 1px 1px 0 0 #FFF, 5px 5px 40px 2px #eee inset;
+    -webkit-box-shadow: 1px 1px 0 0 #FFF, 5px 5px 40px 2px #eee inset;
+    -webkit-background-clip: padding-box;
+}
+
+/*noinspection CssInvalidFunction*/
+input#submit {
+    margin-left: 5px;
+    font: oblique 36px Verdana, "Times New Roman", Times, serif;
+    color: #fff;
+    text-shadow: 0 2px 3px #000;
+    text-transform: lowercase;
+    cursor: pointer;
+    box-shadow: 0 0 4px 0 #eee;
+    -moz-box-shadow: 0 0 4px 0 #eee;
+    -webkit-box-shadow: 0 0 4px 0 #eee;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #6c6), color-stop(0.41, #6bba70), color-stop(1, #9f9));
+    background: -moz-linear-gradient(center bottom, #6c6 0%, #6bba70 41%, #99ff99 100%);
+}
+
+input#submit:hover {
+    color: #393;
+    text-shadow: 0 2px 3px #fff;
+}
+
+dl {
+    list-style: none;
+    font: 20px Arial, serif;
+    color: #000;
+    text-shadow: 0 2px 0 #fcf9ee, 0 4px 0 rgba(0, 0, 0, 0.15);
+    word-wrap: break-word;
+}
+
+dt {
+    margin: 0 20px;
+    padding: 20px 0 5px 0;
+    font-size: 150%;
+}

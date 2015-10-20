@@ -1,0 +1,32 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET         /                        controllers.Application.index()
+GET         /register                controllers.Application.register()
+GET         /regRequest              controllers.Application.registerRequest(user,email,password)
+POST        /api/postmessage/        controllers.Application.postTweet()
+GET         /loginRequest            controllers.Application.loginRequest()
+GET         /api/users/              controllers.Application.postsByUser(user)
+GET         /api/tags/               controllers.Application.postsByTag(tag)
+GET         /logout                  controllers.Application.logout()
+GET         /revoke                  controllers.Application.revoke(user)
+GET         /postByID                controllers.Application.postByID(id)
+
+
+
+GET         /spa                     controllers.SpaController.spa()
+POST        /spa/post                controllers.SpaController.postTweetSpa()
+GET         /api/spa/                controllers.SpaController.search(search)
+GET         /ws                      controllers.SpaController.test()
+
+
+
+
+
+
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file            controllers.Assets.versioned(path="/public", file: Asset)

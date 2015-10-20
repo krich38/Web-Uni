@@ -1,0 +1,111 @@
+@(page: model.PageModel)
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+    <head>
+
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <script language="javascript" type="text/javascript">
+        var socket;
+        function init() {
+
+            socket = new WebSocket("ws://localhost:9000/ws");
+            socket.onopen = function(event) {
+
+            }
+            socket.onmessage = function(event) {
+                alert(event.data);
+            }
+        }
+
+        function post(form) {
+            xhr.open (form.method, form.action, true);
+            xhr.send (new FormData (form));
+            return false;
+        }
+
+        window.addEventListener("load", init, false);
+        </script>
+
+
+        <link rel="stylesheet" href="@routes.Assets.versioned("style.css")" type="text/css" />
+        <script src="https://fb.me/react-0.13.3.js"></script>
+        <script src="@routes.Assets.versioned("js/searchrender.jsx")" defer ></script>
+        <title>COMP391</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div id="sidebar"><div class="login">
+                @if(page.isLoggedIn) {
+                    <h1>@page.getMessage <a href="@routes.Application.logout()">Logout</a></h1>
+                } else {
+                    <h1>@page.getMessage</h1>
+                }
+                @if(!page.isLoggedIn) {
+
+
+                } else {
+                    <form method="post" action="@routes.SpaController.postTweetSpa()" onsubmit="return post(this)">
+                        <input type="text" name="tweet" value="" />
+                        <input type="submit" value="Tweet" id="submit">
+                    </form>
+                }
+
+                <form class="inputform" method="GET" action="/api/spa/">
+                    <input type="text" name="search" value=""/>
+                    <input type="submit" value="Search" id="submit">
+                </form>
+            </div>
+
+            </div>
+            <div id="header">
+                <div id="menu">
+                    <ul>
+                        <li class="menuitem">
+                            <a href="@routes.Application.index()">Home</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="content">
+                <br>
+                <br>
+
+                <div id="search">
+                    <dl>
+                    @if(page.gotTweets) {
+                        @for(tweet <- page.getMessages) {
+
+                            @if(tweet.tweet.length > 140) {
+                                <dt>
+                                    @for(part <- tweet.tweet.substring(0, 140).split(" ")) {
+                                        @if(part.startsWith("#")) {
+                                            <a href="@routes.Application.postsByTag(part.substring(1))">@part</a>
+                                        } else {
+                                            @part
+                                        }
+                                    } <a href="@routes.Application.postByID(tweet.getID)">Read full post</a></dt>
+                            } else {
+                                <dt>
+                                @for(part <- tweet.getParts) {
+                                    @if(part.startsWith("#")) {
+                                        <a href="@routes.Application.postsByTag(part.substring(1))">@part</a>
+                                    } else {
+                                        @part
+                                    }
+                                }</dt>
+
+                            }
+                            <dd><a href="@routes.Application.postsByUser(tweet.getPoster.getUsername)">@tweet.getPoster.getUsername</a></dd>
+                            <dd>@tweet.getDate</dd>
+                            <dd><a href="@routes.Application.postByID(tweet.getID)">Details</a></dd>
+                        }
+                    }
+                    </dl>
+                </div>
+            </div>
+            <div id="footer"></div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,97 @@
+@(page: model.PageModel)
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+    <head>
+
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+        <link rel="stylesheet" href="@routes.Assets.versioned("style.css")" type="text/css" />
+        <title>COMP391</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div id="sidebar"><div class="login">
+                @if(page.isLoggedIn) {
+                    <h1>@page.getMessage <a href="/logout">Logout</a></h1>
+                } else {
+                    <h1>@page.getMessage</h1>
+                }
+                @if(!page.isLoggedIn) {
+
+
+                    <form class="inputform">
+                        <input type="text" name="user" placeholder="Username" />
+                        <input type="password" name="password" placeholder="Password">
+                        <input type="submit" value="Login" id="submit" onclick="this.form.action = 'loginRequest'">
+                        <input type="button" id="submit" value="Register" onclick="window.location.href = '/register'">
+
+                    </form>
+
+                } else {
+                    <form method="post" action="api/postmessage/">
+                        <input type="text" name="tweet" value="" />
+                        <input type="submit" value="Tweet" id="submit">
+                    </form>
+                }
+
+            <form class="inputform" method="GET" action="api/tags/">
+                <input type="text" name="tag" value="" />
+                <input type="submit" value="Search hashtag" id="submit">
+            </form>
+
+            <form class="inputform" method="GET" action="api/users/">
+                <input type="text" name="user" value="" />
+                <input type="submit" value="Search user" id="submit">
+            </form>
+            </div>
+
+            </div>
+            <div id="header">
+                <div id="menu">
+                    <ul>
+                        <li class="menuitem">
+                            <a href="@routes.Application.index()">Home</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="content"> <br>
+                <br>
+                <dl>
+                @if(page.gotTweets) {
+                    @for(tweet <- page.getMessages) {
+
+                        @if(tweet.tweet.length > 140) {
+                            <dt>
+                                @for(part <- tweet.tweet.substring(0, 140).split(" ")) {
+                                    @if(part.startsWith("#")) {
+                                        <a href="@routes.Application.postsByTag(part.substring(1))">@part</a>
+                                    } else {
+                                        @part
+                                    }
+                                } <a href="@routes.Application.postByID(tweet.getID)">Read full post</a></dt>
+                        } else {
+                            <dt>
+                            @for(part <- tweet.tweet.split(" ")) {
+                                @if(part.startsWith("#")) {
+                                    <a href="@routes.Application.postsByTag(part.substring(1))">@part</a>
+                                } else {
+                                    @part
+                                }
+                            }</dt>
+
+                        }
+
+
+                        <dd><a href="@routes.Application.postsByUser(tweet.getPoster.getUsername)">@tweet.getPoster.getUsername</a></dd>
+                        <dd>@tweet.getDate</dd> <dd><a href="@routes.Application.postByID(tweet.getID)">Details</a></dd>
+                    }
+                }
+                </dl>
+            </div>
+            <div id="footer"></div>
+        </div>
+    </body>
+</html>
