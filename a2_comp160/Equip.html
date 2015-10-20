@@ -1,0 +1,225 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!--Equip.html as per assignment instructions,
+    COMP160, Dr Greg Falzon
+	by Kyle Richards
+
+    I was going to write the PHP code for this order form, and host it on
+    my professional domain but I'm not sure what the policy is on linking
+    to foreign servers. -->
+<html lang="en">
+<head>
+    <style type="text/css">
+        h1 {
+            color: blue;
+        }
+
+        p {
+            color: green
+        }
+
+        table {
+            border: 1px solid #000000;
+        }
+
+    </style>
+
+	
+	<script type="text/javascript" src="js/main.js"></script>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="css/print.css" media="print">
+
+    <title>COMP160 A2 | Shop</title>
+</head>
+
+<body>
+<div id="container">
+    <img src="./images/header.jpg" alt="">
+
+    <div id="menu">
+        <ul>
+            <li class="menuitem">
+                <a href="index.html">Home</a>
+            </li>
+
+            <li class="menuitem">
+                <a href="Rego.html">Membership</a>
+            </li>
+
+            <li class="menuitem">
+                <a href="Equip.html">Shop</a>
+            </li>
+
+            <li class="menuitem">
+                <a href="AssignDetails.html">Assignment Details</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div id="content">
+    <h1>Equipment Store</h1>
+
+    <p align="center">Equipment is now available for purchase!</p>
+
+    <form name="order_form" method="Post" action="http://turing.une.edu.au/~gfalzon2/post.cgi"
+          onSubmit="return validate();">
+        <ul>
+            <li id="li_name">
+                <label class="description">Name </label>
+								<span>
+									<input type="text" id="first_name" class="element text" name="first_name"
+                                           maxlength="15" size="8">
+									<label>First</label>
+								</span>
+
+								<span>
+									<input type="text" id="last_name" class="element text" name="last_name"
+                                           maxlength="15" size="8">
+									<label>Last</label>
+								</span>
+            </li>
+
+            <li id="li_address">
+                <label class="description">Address </label>
+
+                <div>
+                    <input type="text" id="address" class="element text large" name="address" maxlength="30">
+                    <label for="address">Street Address</label>
+                </div>
+                <div>
+                    <input type="text" id="address_2" class="element text large" name="address_2"
+                           maxlength="30">
+                    <label for="address_2">Address Line 2</label>
+                </div>
+                <div class="left">
+                    <input type="text" id="city" class="element text medium" name="city" maxlength="30">
+                    <label for="city">City</label>
+                </div>
+                <div class="right">
+                    <input type="text" id="state" class="element text medium" name="state" maxlength="30">
+                    <label for="state">State / Province / Region</label>
+                </div>
+                <div class="left">
+                    <input type="text" id="zip" class="element text medium" name="zip" maxlength="6">
+                    <label for="zip">Postal / Zip Code</label>
+                </div>
+            </li>
+
+            <li id="li_email">
+                <label class="description">Email </label>
+
+                <div>
+                    <input type="text" id="email" class="element text medium" name="email" maxlength="255"
+                           title="email">
+                </div>
+            </li>
+
+            <li id="li_numb">
+                <label class="description">Home Phone </label>
+								<span>
+									<input type="text" id="area" class="element text" name="area" size="2"
+                                           maxlength="2"> -
+									<label for="area">(##)</label>
+								</span>
+								<span>
+									<input type="text" id="numb_first" class="element text" name="numb_first" size="4"
+                                           maxlength="4">
+									<label for="numb_first">####</label>
+								</span>
+								<span>
+									<input type="text" id="numb_second" class="element text" name="numb_second" size="4"
+                                           maxlength="4">
+									<label for="numb_second">####</label>
+								</span>
+            </li>
+
+            <li id="li_dob">
+                <label class="description">Date of Birth</label>
+								<span>
+									<input type="text" id="day" class="element text" name="month" size="2"
+                                           maxlength="2"> /
+									<label for="day">DD</label>
+								</span>
+								<span>
+									<input type="text" id="month" class="element text" name="month" size="2"
+                                           maxlength="2"> /
+									<label for="month">MM</label>
+								</span>
+								<span>
+									<input type="text" id="year" class="element text" name="year" size="4"
+                                           maxlength="4">
+									<label for="year">YYYY</label>
+								</span>
+            </li>
+
+
+            <li id="order_table">
+                <table border="0" cellpadding="10" cellspacing="3" bgcolor="#088A08">
+                    <tr bgcolor="#04B404">
+                        <td width=250><b>Item</b><br></td>
+                        <td width="150"><b>Cost</b><br></td>
+                        <td width="150"><b>Stock</b><br></td>
+                        <td width=50><b>Quantity</b><br></td>
+
+                    </tr>
+                    <tr bgcolor="#088A08">
+                        <td><a href="javascript:alert('The Cracked Die (aka Adelaide pound) is so named because a crack developed in the DWT area of the legend during the striking of the first forty coins at the Adelaide Government Assay Office. With so few struck and even fewer surviving today, the Cracked Die (or first Die) is one of the nation’s greatest coin rarities. ')"><font color=WHITE><b>Adelaide Pounds</b></font></a></td>
+                        <td><font color=WHITE>($21.60ea)</font>
+                        <td><font color=WHITE>1852</font>
+                        <td align="center"><input type="text" name="ap" size="6" maxlength="6"
+                                                  onChange="valid(this.form)">
+                        </td>
+                    </tr>
+                    <tr bgcolor="#088A08">
+                        <td><a href="javascript:alert('The Sydney Mint florin was a coin used in the Commonwealth of Australia before decimalisation in 1966. The denomination was first minted in 1910, to the same size and weight as the United Kingdom florin. Florins minted from 1910 to 1945 were produced with a .925 sterling silver content, weighing 11.31 g (0.3636 troy ounces) with an actual silver weight (ASW) of 10.46 grams (0.3363 ozt). Florins minted between 1946 and 1963 were produced with a .500 silver content, weighing 11.31 g with an ASW of 5.65 g (0.1818 ozt).')"><font color=WHITE><b>Sydney Mint Florin</b></font></a></td>
+                        <td><font color=WHITE>($142.86ea</font>
+                        <td><font color=WHITE>1852</font>
+                        <td align="center"><input type="text" name="smf" size="6" maxlength="6"
+                                                  onChange="valid(this.form)">
+                        </td>
+                    </tr>
+                    <tr bgcolor="#088A08">
+                        <td><a href="javascript:alert('The 1922/1 overdate 3d is the rarest silver pre-decimal coin issued for use in circulation.')"><font color=WHITE><b>Overdate Threepence</b></font></a></td>
+                        <td><font color=WHITE>($36.42ea)</font>
+                        <td><font color=WHITE>1922</font>
+                        <td align="center"><input type="text" name="od" size="6"
+                                                  maxlength="6" onChange="valid(this.form)"></td>
+                    </tr>
+                    <tr bgcolor="#088A08">
+                        <td><a href="javascript:alert('he holey dollar was created to address a shortage of coins in the new colony. Governor Lachlan Macquarie imported 40,000 Spanish reales in 1812 and had convicted forger William Henshall cut the centre out of each, to double the number of available coins. The coins were counterstamped and the outer ring became known as the holey dollar, with the centre renamed the dump.')"><font color=WHITE><b>Holey Dollar</b></font></a></td>
+                        <td><font color=WHITE>($135.34ea)</font>
+                        <td><font color=WHITE>1813</font>
+                        <td align="center"><input type="text" name="hd" size="6"
+                                                  maxlength="6" onChange="valid(this.form)"></td>
+                    </tr>
+                    <tr bgcolor="#088A08">
+						<td><a href="javascript:alert('The opening of the nation’s first Federal Parliamentary building in our national capital, Canberra, was commemorated by the striking of 400 limited edition proof florins: the 1927 Proof Canberra Florin. This coin is a pristine example from the original mintage.')"><font color=WHITE><b>Proof Canberra Florin</b></font></a></td>
+                        <td><font color=WHITE>($23.35ea)</font>
+                        <td><font color=WHITE>1927</font>
+                        <td align="center"><input type="text" name="pcf" size="6"
+                                                  maxlength="6" onChange="valid(this.form)"></td>
+                    </tr>
+
+                    <tr bgcolor="#088A08">
+                        <td><label for="total"><font color=WHITE><b>Total</b></font><br></label><input type="text" size="20" name="total" class="text"
+                                                                       value="$0.00" id="total">
+
+                        </td>
+                    </tr>
+
+                </table>
+            </li>
+
+
+            <li class="buttons">
+                <input type="hidden" name="rego_form">
+                <input type="submit" id="saveform" class="button_text" name="submit"
+                       value="Submit">
+            </li>
+        </ul>
+    </form>
+</div>
+</body>
+</html>

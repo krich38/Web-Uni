@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!--Rego.html as per assignment instructions,
+    COMP160, Dr Greg Falzon
+	by Kyle Richards								-->
+<html lang="en">
+<head>
+    <style type="text/css">
+        h1 {
+            color: red
+        }
+
+        p {
+            color: blue
+        }
+    </style>
+	
+	<script type="text/javascript" src="js/main.js"></script>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="css/print.css" media="print">
+    <title>COMP160 A2 | Membership Rego</title>
+</head>
+
+<body>
+<div id="container">
+    <img src="./images/header.jpg" alt="">
+
+    <div id="menu">
+        <ul>
+            <li class="menuitem">
+                <a href="index.html">Home</a>
+            </li>
+            <li class="menuitem">
+                <a href="Rego.html">Membership</a>
+            </li>
+            <li class="menuitem">
+                <a href="Equip.html">Shop</a>
+            </li>
+            <li class="menuitem">
+                <a href="AssignDetails.html">Assignment Details</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div id="content">
+    <h1>Membership Registration</h1>
+    <br>
+
+    <p>
+        Renewing your membership has never been easier! We now offer online renewal/joining. Simply fill out the form
+        below and click "submit"
+
+    <div id="form_container">
+        <form id="rego_form" enctype="multipart/form-data" method="post"
+              action="http://turing.une.edu.au/~gfalzon2/post.cgi">
+            <div class="form_description">
+                <ul>
+                    <li id="li_name">
+                        <label class="description">Name </label>
+								<span>
+									<input type="text" id="first_name" class="element text" name="first_name"
+                                           maxlength="15" size="8">
+									<label>First</label>
+								</span>
+								
+								<span>
+									<input type="text" id="last_name" class="element text" name="last_name"
+                                           maxlength="15" size="8">
+									<label>Last</label>
+								</span>
+                    </li>
+
+                    <li id="li_address">
+                        <label class="description">Address </label>
+
+                        <div>
+                            <input type="text" id="address" class="element text large" name="address" maxlength="30">
+                            <label for="address">Street Address</label>
+                        </div>
+                        <div>
+                            <input type="text" id="address_2" class="element text large" name="address_2"
+                                   maxlength="30">
+                            <label for="address_2">Address Line 2</label>
+                        </div>
+                        <div class="left">
+                            <input type="text" id="city" class="element text medium" name="city" maxlength="30">
+                            <label for="city">City</label>
+                        </div>
+                        <div class="right">
+                            <input type="text" id="state" class="element text medium" name="state" maxlength="30">
+                            <label for="state">State / Province / Region</label>
+                        </div>
+                        <div class="left">
+                            <input type="text" id="zip" class="element text medium" name="zip" maxlength="6">
+                            <label for="zip">Postal / Zip Code</label>
+                        </div>
+                    </li>
+
+                    <li id="li_email">
+                        <label class="description">Email </label>
+
+                        <div>
+                            <input type="text" id="email" class="element text medium" name="email" maxlength="255"
+                                   title="email">
+                        </div>
+                    </li>
+
+                    <li id="li_numb">
+                        <label class="description">Home Phone </label>
+								<span>
+									<input type="text" id="area" class="element text" name="area" size="2"
+                                           maxlength="2"> -
+									<label for="area">(##)</label>
+								</span>
+								<span>
+									<input type="text" id="numb_first" class="element text" name="numb_first" size="4"
+                                           maxlength="4">
+									<label for="numb_first">####</label>
+								</span>
+								<span>
+									<input type="text" id="numb_second" class="element text" name="numb_second" size="4"
+                                           maxlength="4">
+									<label for="numb_second">####</label>
+								</span>
+                    </li>
+
+                    <li id="li_dob">
+                        <label class="description">Date of Birth</label>
+								<span>
+									<input type="text" id="day" class="element text" name="month" size="2"
+                                           maxlength="2"> /
+									<label for="day">DD</label>
+								</span>
+								<span>
+									<input type="text" id="month" class="element text" name="month" size="2"
+                                           maxlength="2"> /
+									<label for="month">MM</label>
+								</span>
+								<span>
+									<input type="text" id="year" class="element text" name="year" size="4"
+                                           maxlength="4">
+									<label for="year">YYYY</label>
+								</span>
+                    </li>
+
+                    <li id="membership">
+                        <label class="description">Membership Type </label>
+								<span>
+									<input type="radio" id="three_month" class="element radio" name="three_month"
+                                           value="1" checked="checked">
+									<label class="choice" for="three_month">3month $40</label>
+									<input type="radio" id="six_month" class="element radio" name="six_month" value="2">
+									<label class="choice" for="six_month">6month $70</label>
+									<input type="radio" id="twelve_month" class="element radio" name="twelve_month"
+                                           value="3">
+									<label class="choice" for="twelve_month">12month $110</label>
+								</span>
+                    </li>
+
+                    <li id="tos">
+                        <label class="description">Upload Signed ToS </label>
+
+                        <div>
+                            <!--If we want to set the file to be required, just unquote this but for this assignment it's easier to just leave it be.
+                            <input id="tos_file" name="tos" class="element file" type="file" required>
+                            -->
+                            <input type="file" id="tos_file" class="element file" name="tos">
+
+                        </div>
+                    </li>
+
+                    <li class="buttons">
+                        <input type="hidden" name="rego_form">
+                        <input type="submit" id="saveform" class="button_text" name="submit" onclick="return validate()"
+                               value="Submit">
+                    </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

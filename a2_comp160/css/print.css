@@ -1,0 +1,25 @@
+/* Our printable style sheet. Omits all images, colors etc 
+220119879, Kyle Richards */
+.NonPrintable, #Menu, #Footer {
+    display: none;
+}
+
+img {
+    display: none;
+}
+
+body {
+    font: 12pt Georgia, "Times New Roman", Times, serif;
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 24pt;
+    color: black;
+}
+
+p {
+    color: black;
+}
+
+
